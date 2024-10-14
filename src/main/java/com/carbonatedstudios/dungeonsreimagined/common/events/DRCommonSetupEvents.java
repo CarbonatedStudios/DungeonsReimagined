@@ -1,10 +1,12 @@
 package com.carbonatedstudios.dungeonsreimagined.common.events;
 
+import com.carbonatedstudios.dungeonsreimagined.common.entity.hostile.PinkSlime;
+import com.carbonatedstudios.dungeonsreimagined.common.entity.hostile.RedstoneCube;
+import com.carbonatedstudios.dungeonsreimagined.common.registry.DREntityTypes;
 import com.carbonatedstudios.dungeonsreimagined.datagen.*;
 import net.minecraft.core.HolderLookup;
 import net.minecraft.data.DataGenerator;
 import net.minecraft.data.PackOutput;
-import net.minecraft.data.loot.LootTableProvider;
 import net.minecraftforge.common.data.ExistingFileHelper;
 import net.minecraftforge.data.event.GatherDataEvent;
 import net.minecraftforge.event.entity.EntityAttributeCreationEvent;
@@ -22,6 +24,8 @@ public class DRCommonSetupEvents {
 
         @SubscribeEvent
         public static void onAttributeRegisterer(EntityAttributeCreationEvent event) {
+            event.put(DREntityTypes.PINK_SLIME.get(), PinkSlime.createAttributes().build());
+            event.put(DREntityTypes.REDSTONE_CUBE.get(), RedstoneCube.createAttributes().build());
         }
 
 
